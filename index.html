@@ -1,238 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pilih Motif</title>
-
-<style>
-body {
-  font-family: Arial, sans-serif;
-  padding: 16px;
-  background: #f5f5f5;
-}
-
-h2 {
-  text-align: center;
-}
-
-.box {
-  max-width: 420px;
-  margin: auto;
-}
-
-/* INPUT */
-#search {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-/* SUGGESTION */
-#suggestions {
-  background: #fff;
-  border: 1px solid #ddd;
-}
-
-.suggest-item {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.suggest-item:hover {
-  background: #eee;
-}
-
-/* SELECTED AREA */
-#selected {
-  margin-top: 12px;
-  background: #fff6d8; /* kuning lembut */
-  padding: 10px;
-  border-radius: 12px;
-
-  display: flex;
-  flex-wrap: wrap;     /* ⬅️ otomatis turun */
-  gap: 8px;
-}
-
-/* CHIP */
-.chip {
-  background: #ffffff;
-  padding: 6px 10px;
-  border-radius: 16px;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  font-size: 14px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.chip button {
-  border: none;
-  background: transparent;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* BUTTON */
-button {
-  margin-top: 12px;
-  padding: 10px 14px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* PREVIEW CETAK */
-#printPreview {
-  display: none;
-  margin-top: 20px;
-  background: #ffffff;
-  padding: 16px;
-  border-radius: 12px;
-}
-
-#printPreview.show {
-  display: block;
-}
-
-.print-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.print-item {
-  border: 1px solid #ddd;
-  padding: 6px;
-  text-align: center;
-  font-size: 12px;
-}
-
-.print-item img {
-  width: 100%;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Pilih Motif</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
 <div class="box">
+  <h2>Pilih Motif</h2>
+  
+  <input id="search" type="text" placeholder="Ketik nama motif..." autocomplete="off">
+  <div id="suggestions"></div>
+  
+  <div id="selected"></div>
 
-<h2>Pilih Motif</h2>
+  <button class="btn-preview" id="btnPreview">Preview Cetak</button>
 
-<input id="search" placeholder="Ketik nama motif...">
-
-<div id="suggestions"></div>
-
-<div id="selected"></div>
-
-<button id="btnPreview">Preview Cetak</button>
-
-<div id="printPreview">
-  <div class="print-grid" id="printSelected"></div>
-
-  <button onclick="window.print()">Cetak / Simpan PDF</button>
+  <div id="printArea" class="print-preview hidden">
+    <div class="print-grid" id="printSelected"></div>
+    <button class="btn-preview btn-print-trigger" onclick="window.print()" style="background: #4CAF50; color: white;">Cetak / Simpan PDF</button>
+  </div>
 </div>
 
-</div>
-
-<script>
-// DATA CONTOH
-const motifs = [
-  { name: "Aurora blue", img: "https://via.placeholder.com/300" },
-  { name: "Autumn black", img: "https://via.placeholder.com/300" },
-  { name: "Anaheim green", img: "https://via.placeholder.com/300" }
-];
-
-let selectedMotifs = [];
-
-// ELEMENT
-const search = document.getElementById("search");
-const suggestions = document.getElementById("suggestions");
-const selected = document.getElementById("selected");
-const btnPreview = document.getElementById("btnPreview");
-const printPreview = document.getElementById("printPreview");
-const printSelected = document.getElementById("printSelected");
-
-// SEARCH
-search.addEventListener("input", () => {
-  suggestions.innerHTML = "";
-  const val = search.value.toLowerCase();
-  if (!val) return;
-
-  motifs
-    .filter(m => m.name.toLowerCase().includes(val))
-    .forEach(m => {
-      const div = document.createElement("div");
-      div.className = "suggest-item";
-      div.textContent = m.name;
-      div.onclick = () => selectMotif(m);
-      suggestions.appendChild(div);
-    });
-});
-
-// SELECT MOTIF
-function selectMotif(motif) {
-  if (selectedMotifs.find(m => m.name === motif.name)) return;
-
-  selectedMotifs.push(motif);
-  renderSelected();
-  suggestions.innerHTML = "";
-  search.value = "";
-}
-
-// RENDER SELECTED
-function renderSelected() {
-  selected.innerHTML = "";
-  selectedMotifs.forEach((m, i) => {
-    const div = document.createElement("div");
-    div.className = "chip";
-    div.innerHTML = `
-      ${m.name}
-      <button onclick="removeMotif(${i})">×</button>
-    `;
-    selected.appendChild(div);
-  });
-}
-
-// REMOVE
-function removeMotif(i) {
-  selectedMotifs.splice(i, 1);
-  renderSelected();
-}
-
-// PREVIEW CETAK
-<script>
-btnPreview.onclick = () => {
-
-  // ⛔ kalau belum pilih motif
-  if (selectedMotifs.length === 0) {
-    alert("Pilih minimal 1 motif dulu");
-    return;
-  }
-
-  printSelected.innerHTML = "";
-
-  selectedMotifs.forEach(m => {
-    const div = document.createElement("div");
-    div.className = "print-item";
-    div.innerHTML = `
-      <img src="${m.img}">
-      <div>${m.name}</div>
-    `;
-    printSelected.appendChild(div);
-  });
-
-  // ✅ tampilkan preview
-  printPreview.classList.add("show");
-
-  // ⬇️ auto scroll ke preview
-  printPreview.scrollIntoView({ behavior: "smooth" });
-};
-</script>
-</script>
+<script src="data.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
