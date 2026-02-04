@@ -204,8 +204,17 @@ function removeMotif(i) {
 }
 
 // PREVIEW CETAK
+<script>
 btnPreview.onclick = () => {
+
+  // ⛔ kalau belum pilih motif
+  if (selectedMotifs.length === 0) {
+    alert("Pilih minimal 1 motif dulu");
+    return;
+  }
+
   printSelected.innerHTML = "";
+
   selectedMotifs.forEach(m => {
     const div = document.createElement("div");
     div.className = "print-item";
@@ -216,8 +225,13 @@ btnPreview.onclick = () => {
     printSelected.appendChild(div);
   });
 
+  // ✅ tampilkan preview
   printPreview.classList.add("show");
+
+  // ⬇️ auto scroll ke preview
+  printPreview.scrollIntoView({ behavior: "smooth" });
 };
+</script>
 </script>
 
 </body>
