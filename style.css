@@ -26,3 +26,15 @@
 #suggestions div:hover {
   background: #f0f0f0;
 }
+.selected-item img {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin-top: 6px;
+}
+
+.selected-item {
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin-top: 10px;
+}
