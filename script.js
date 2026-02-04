@@ -42,12 +42,9 @@ function renderSelected() {
   selectedBox.innerHTML = "";
 
   selectedItems.forEach((item, index) => {
-    const wrapper = document.createElement("div");
-    wrapper.className = "selected-item";
-
-    const nama = document.createElement("span");
-nama.className = "chip";
-nama.textContent = item.nama;
+    const chip = document.createElement("span");
+    chip.className = "chip";
+    chip.textContent = item.nama;
 
     const btn = document.createElement("button");
     btn.textContent = "×";
@@ -56,13 +53,7 @@ nama.textContent = item.nama;
       renderSelected();
     };
 
-    const img = document.createElement("img");
-    img.src = item.foto;
-
-    wrapper.appendChild(chip);
-    wrapper.appendChild(btn);
-    wrapper.appendChild(img);
-
-    selectedBox.appendChild(wrapper);
+    chip.appendChild(btn);
+    selectedBox.appendChild(chip);
   });
 }
