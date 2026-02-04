@@ -120,3 +120,4 @@ function motifToFileName(motif) {
     .toLowerCase()
     .replace(/ /g, "-");
 }
+let photoSize = "25x25"; 
