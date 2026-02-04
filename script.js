@@ -6,8 +6,7 @@ const printArea = document.getElementById("printArea");
 const printSelected = document.getElementById("printSelected");
 
 let selectedItems = [];
-
-// Logika Pencarian
+// Logika Pencarian (Hanya menampilkan yang berawalan dari keyword)
 searchInput.addEventListener("input", function () {
   const keyword = this.value.toLowerCase();
   suggestionBox.innerHTML = "";
@@ -15,7 +14,8 @@ searchInput.addEventListener("input", function () {
   if (keyword === "") return;
 
   const filtered = motifList.filter(item =>
-    item.nama.toLowerCase().includes(keyword) &&
+    // .startsWith memastikan pencarian dimulai dari huruf paling depan
+    item.nama.toLowerCase().startsWith(keyword) &&
     !selectedItems.some(x => x.nama === item.nama)
   );
 
@@ -32,6 +32,7 @@ searchInput.addEventListener("input", function () {
     suggestionBox.appendChild(div);
   });
 });
+
 
 // Menampilkan Pilihan (Chips)
 function renderSelected() {
