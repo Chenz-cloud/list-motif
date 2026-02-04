@@ -1,66 +1,28 @@
-body {
-  font-family: Arial, sans-serif;
-  padding: 16px;
-  background: #f5f5f5;
-}
-
-h2 {
-  text-align: center;
-}
-
 .box {
   max-width: 400px;
   margin: auto;
   background: #fff;
   padding: 16px;
   border-radius: 8px;
+  position: relative; /* WAJIB */
 }
 
-#search {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-}
-
-/* AUTOCOMPLETE */
 #suggestions {
-  border: 1px solid #ddd;
-  background: #fff;
+  position: absolute;      /* WAJIB */
+  top: 60px;               /* tepat di bawah input */
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 9999;           /* WAJIB */
 }
 
 #suggestions div {
-  padding: 8px;
+  padding: 10px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
 }
 
 #suggestions div:hover {
   background: #f0f0f0;
-}
-
-/* SELECTED ITEM */
-.selected-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-}
-
-.selected-item img {
-  width: 80px;
-  height: auto;
-  border-radius: 4px;
-}
-
-.selected-item button {
-  background: red;
-  color: white;
-  border: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  cursor: pointer;
 }
