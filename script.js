@@ -16,7 +16,7 @@ searchInput.addEventListener("input", function () {
 
   motifList
     .filter(item =>
-      item.nama.toLowerCase().includes(keyword) &&
+      item.nama.toLowerCase().startsWith(keyword)&&
       !selectedItems.some(x => x.nama === item.nama)
     )
     .forEach(item => {
