@@ -30,7 +30,17 @@ searchInput.addEventListener("input", function () {
     });
 });
 
-function renderSelected() {
+function renderSelected()
+const previewList = document.getElementById("preview-list");
+
+function renderPreview() {
+  previewList.innerHTML = "";
+  selectedItems.forEach(item => {
+    const box = document.createElement("div");
+    box.textContent = item;
+    previewList.appendChild(box);
+  });
+}{
   selectedBox.innerHTML = "";
   selectedItems.forEach(item => {
     const tag = document.createElement("span");
