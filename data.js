@@ -3,7 +3,7 @@ const motifList = [
   { nama: "Aurora bg", foto: "photos/25x50/aurora-bg.jpg" }, // Pastikan nama filenya aurora-bg.jpg
   { nama: "Anaheim gn", foto: "photos/25x50/anaheim-gn.jpg" },
   { nama: "Autumn blue", foto: "photos/25x50/autumn-blue.jpg" }, // Sebelumnya mungkin salah ketik 'autumb'
-  { nama: "Camrose gy", foto: "photos/25x50/camrose-gy.jpg" },
+  { nama: "Camrose grey", foto: "photos/25x50/camrose-grey.jpg" },
   { nama: "Camrose wt", foto: "photos/25x50/camrose-wt.jpg" },
   { nama: "Interlaken tc", foto: "photos/25x50/interlaken-tc.jpg" },
   { nama: "Livia wt", foto: "photos/25x50/livia-wt.jpg" },
