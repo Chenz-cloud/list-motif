@@ -115,3 +115,23 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+#suggestions {
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  border: 1px solid #ccc;
+  z-index: 999;
+}
+
+#suggestions div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestions div:hover {
+  background: #f0f0f0;
+}
+
+.box {
+  position: relative;
+}
