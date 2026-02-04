@@ -2,99 +2,27 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Daftar Motif</title>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #8f8f8f;
-      margin: 0;
-      padding: 15px;
-    }
-
-    .card {
-      background: #ffffff;
-      padding: 15px;
-      border-radius: 12px;
-      max-width: 420px;
-      margin: 0 auto 15px auto;
-    }
-
-    h2 {
-      margin: 10px 0;
-    }
-
-    hr {
-      border: none;
-      border-top: 2px solid #000;
-      margin-bottom: 15px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .item p {
-      margin: 5px 0;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .item img {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
-    }
-
-    button {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: 1px solid #aaa;
-      background: #f5f5f5;
-      cursor: pointer;
-    }
-
-    #btnPreview {
-      max-width: 420px;
-      margin: 0 auto;
-      display: block;
-    }
-  </style>
+  <title>Pilih Motif</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <div class="card" id="content">
-    <button id="btnDownload">Download PDF</button>
+<h2>Pilih Motif</h2>
+
 <div class="box">
   <input
     type="text"
     id="search"
-    placeholder="Ketik nama / kode motif..."
+    placeholder="Ketik nama motif..."
     autocomplete="off"
   >
 
   <div id="suggestions"></div>
   <div id="selected"></div>
 </div>
-    <h2>Daftar Motif</h2>
-    <hr>
 
-    <div class="grid" id="listMotif"></div>
-  </div>
-
-  <button id="btnPreview">Preview PDF</button>
-
-  <!-- versioning buat cache -->
-  <script src="data.js?v=6"></script>
-  <script src="script.js?v=
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
