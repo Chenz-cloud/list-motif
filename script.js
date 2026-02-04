@@ -72,3 +72,26 @@ function closeSuggestions(e) {
 
 document.addEventListener("touchstart", closeSuggestions);
 document.addEventListener("click", closeSuggestions);
+const btnPreview = document.getElementById("btnPreview");
+const pdfPreview = document.getElementById("pdfPreview");
+const pdfList = document.getElementById("pdf-list");
+
+btnPreview.onclick = function () {
+  pdfList.innerHTML = "";
+
+  selectedItems.forEach((item, index) => {
+    const div = document.createElement("div");
+    div.textContent = (index + 1) + ". " + item;
+    div.style.marginBottom = "6px";
+    pdfList.appendChild(div);
+  });
+
+  pdfPreview.classList.remove("hidden");
+};
+
+// tap di luar kertas untuk tutup
+pdfPreview.onclick = function (e) {
+  if (e.target === pdfPreview) {
+    pdfPreview.classList.add("hidden");
+  }
+};
