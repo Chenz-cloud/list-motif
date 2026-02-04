@@ -94,3 +94,7 @@ pdfPreview.onclick = function (e) {
     pdfPreview.classList.add("hidden");
   }
 };
+btnPreview.onclick = function () {
+  console.log("TOMBOL DIKLIK");
+  pdfPreview.classList.remove("hidden");
+};
