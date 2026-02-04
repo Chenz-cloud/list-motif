@@ -116,3 +116,24 @@ h2 {
 .selected-item .name {
   display: none;
 }
+.btn-preview {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #ffcc00;
+  cursor: pointer;
+}
+
+.print-preview {
+  margin-top: 20px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.hidden {
+  display: none;
+}
