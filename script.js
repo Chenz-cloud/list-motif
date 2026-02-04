@@ -1,10 +1,14 @@
 const searchInput = document.getElementById("search");
 const suggestionBox = document.getElementById("suggestions");
 const selectedBox = document.getElementById("selected");
+const btnPreview = document.getElementById("btnPreview");
+const pdfPreview = document.getElementById("pdfPreview");
 
 let selectedItems = [];
 
-// AUTOCOMPLETE
+/* =====================
+   AUTOCOMPLETE
+===================== */
 searchInput.addEventListener("input", function () {
   const keyword = this.value.toLowerCase();
   suggestionBox.innerHTML = "";
@@ -12,25 +16,28 @@ searchInput.addEventListener("input", function () {
   if (keyword === "") return;
 
   motifList
-  .filter(item =>
-    item.nama.toLowerCase().includes(keyword) &&
-    !selectedItems.some(x => x.nama === item.nama)
-  )
-  .forEach(item => {
-    const div = document.createElement("div");
-    div.textContent = item.nama;
+    .filter(item =>
+      item.nama.toLowerCase().includes(keyword) &&
+      !selectedItems.some(x => x.nama === item.nama)
+    )
+    .forEach(item => {
+      const div = document.createElement("div");
+      div.textContent = item.nama;
 
-    div.onclick = function () {
-      selectedItems.push(item);
-      renderSelected();
-      searchInput.value = "";
-      suggestionBox.innerHTML = "";
-    };
+      div.onclick = function () {
+        selectedItems.push(item);
+        renderSelected();
+        searchInput.value = "";
+        suggestionBox.innerHTML = "";
+      };
 
-    suggestionBox.appendChild(div);
-  });
+      suggestionBox.appendChild(div);
+    });
+});
 
-// RENDER CHIP
+/* =====================
+   RENDER PILIHAN + FOTO
+===================== */
 function renderSelected() {
   selectedBox.innerHTML = "";
 
@@ -38,9 +45,12 @@ function renderSelected() {
     const wrapper = document.createElement("div");
     wrapper.className = "selected-item";
 
-    const tag = document.createElement("span");
-    tag.className = "chip";
-    tag.textContent = item;
+    const name = document.createElement("div");
+    name.textContent = item.nama;
+
+    const img = document.createElement("img");
+    img.src = item.foto;
+    img.className = "preview-img";
 
     const btn = document.createElement("button");
     btn.textContent = "×";
@@ -49,54 +59,23 @@ function renderSelected() {
       renderSelected();
     };
 
-    const img = document.createElement("img");
-    const fileName = motifToFileName(item);
-
-    img.src = `photos/${photoSize}/${fileName}.jpg`;
-    img.alt = item;
-    img.className = "preview-img";
-
-    wrapper.appendChild(tag);
-    wrapper.appendChild(btn);
+    wrapper.appendChild(name);
     wrapper.appendChild(img);
+    wrapper.appendChild(btn);
 
     selectedBox.appendChild(wrapper);
   });
 }
 
+/* =====================
+   PREVIEW PDF
+===================== */
+btnPreview.onclick = function () {
   pdfPreview.classList.remove("hidden");
 };
 
-// tap di luar kertas untuk tutup
 pdfPreview.onclick = function (e) {
   if (e.target === pdfPreview) {
     pdfPreview.classList.add("hidden");
   }
 };
-btnPreview.onclick = function () {
-  console.log("TOMBOL DIKLIK");
-  pdfPreview.classList.remove("hidden");
-};
-const { jsPDF } = window.jspdf;
-const btnDownload = document.getElementById("btnDownload");
-
-btnDownload.onclick = function () {
-  const pdf = new jsPDF();
-
-  let y = 20;
-  pdf.text("Daftar Motif", 20, y);
-  y += 10;
-
-  selectedItems.forEach((item, i) => {
-    pdf.text(`${i + 1}. ${item}`, 20, y);
-    y += 8;
-  });
-
-  pdf.save("daftar-motif.pdf");
-};
-function motifToFileName(motif) {
-  return motif
-    .toLowerCase()
-    .replace(/ /g, "-");
-}
-let photoSize = "25x25"; 
