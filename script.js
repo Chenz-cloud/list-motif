@@ -4,40 +4,37 @@ const selectedBox = document.getElementById("selected");
 
 let selectedItems = [];
 
-searchInput.addEventListener("input", () => {
-  const keyword = searchInput.value.toLowerCase();
+searchInput.addEventListener("input", function () {
+  const keyword = this.value.toLowerCase();
   suggestionBox.innerHTML = "";
 
   if (keyword === "") return;
 
-  const filtered = motifList.filter(item =>
-    item.toLowerCase().includes(keyword) &&
-    !selectedItems.includes(item)
-  );
+  motifList
+    .filter(item =>
+      item.toLowerCase().includes(keyword) &&
+      !selectedItems.includes(item)
+    )
+    .forEach(item => {
+      const div = document.createElement("div");
+      div.textContent = item;
 
-  filtered.forEach(item => {
-    const div = document.createElement("div");
-    div.textContent = item;
-    div.className = "suggestion";
+      div.onclick = function () {
+        selectedItems.push(item);
+        renderSelected();
+        searchInput.value = "";
+        suggestionBox.innerHTML = "";
+      };
 
-    div.onclick = () => {
-      selectedItems.push(item);
-      renderSelected();
-      searchInput.value = "";
-      suggestionBox.innerHTML = "";
-    };
-
-    suggestionBox.appendChild(div);
-  });
+      suggestionBox.appendChild(div);
+    });
 });
 
 function renderSelected() {
   selectedBox.innerHTML = "";
-
   selectedItems.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "selected-item";
-    div.textContent = item;
-    selectedBox.appendChild(div);
+    const tag = document.createElement("span");
+    tag.textContent = item;
+    selectedBox.appendChild(tag);
   });
 }
