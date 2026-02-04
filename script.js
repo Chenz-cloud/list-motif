@@ -115,3 +115,8 @@ btnDownload.onclick = function () {
 
   pdf.save("daftar-motif.pdf");
 };
+function motifToFileName(motif) {
+  return motif
+    .toLowerCase()
+    .replace(/ /g, "-");
+}
