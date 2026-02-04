@@ -98,3 +98,20 @@ btnPreview.onclick = function () {
   console.log("TOMBOL DIKLIK");
   pdfPreview.classList.remove("hidden");
 };
+const { jsPDF } = window.jspdf;
+const btnDownload = document.getElementById("btnDownload");
+
+btnDownload.onclick = function () {
+  const pdf = new jsPDF();
+
+  let y = 20;
+  pdf.text("Daftar Motif", 20, y);
+  y += 10;
+
+  selectedItems.forEach((item, i) => {
+    pdf.text(`${i + 1}. ${item}`, 20, y);
+    y += 8;
+  });
+
+  pdf.save("daftar-motif.pdf");
+};
