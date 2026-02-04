@@ -174,9 +174,11 @@ body {
   margin-bottom: 15px;
 }
 
-.pdf-header img {
-  height: 40px;
+.pdf-header h3 {
+  text-align: center;
+  margin: 0 0 10px;
 }
+
 .pdf-page {
   background: #fff;
   padding: 20px;
