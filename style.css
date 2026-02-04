@@ -62,13 +62,13 @@ h2 {
   cursor: pointer;
 }
 #selected {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 kolom */
   gap: 8px;
   margin-top: 12px;
 
-  background: #f0f2f5;   /* beda tipis dari body */
-  padding: 12px;
+  background: #f0f2f5;
+  padding: 10px;
   border-radius: 12px;
 }
 
