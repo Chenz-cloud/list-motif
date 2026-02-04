@@ -86,3 +86,7 @@ body {
   z-index: 999;
   background: #fff;
 }
+.box {
+  position: relative;
+  z-index: 1000;
+}
