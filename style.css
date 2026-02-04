@@ -70,6 +70,10 @@ h2 {
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 12px;
+
+  background: #f0f2f5;   /* beda tipis dari body */
+  padding: 12px;
+  border-radius: 12px;
 }
 
 .chip {
