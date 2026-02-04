@@ -1,4 +1,3 @@
-
 const searchInput = document.getElementById("search");
 const suggestionBox = document.getElementById("suggestions");
 const selectedBox = document.getElementById("selected");
