@@ -92,3 +92,26 @@ body {
   position: relative;
   z-index: 1000;
 }
+#selected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #eef2ff;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.chip button {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
