@@ -12,26 +12,23 @@ searchInput.addEventListener("input", function () {
   if (keyword === "") return;
 
   motifList
-    .filter(item =>
-      item.toLowerCase().includes(keyword) &&
-      !selectedItems.includes(item)
-    )
-    .forEach(item => {
-      const div = document.createElement("div");
-      div.textContent = item;
+  .filter(item =>
+    item.nama.toLowerCase().includes(keyword) &&
+    !selectedItems.some(x => x.nama === item.nama)
+  )
+  .forEach(item => {
+    const div = document.createElement("div");
+    div.textContent = item.nama;
 
-      div.onclick = function (e) {
-        e.stopPropagation();
-        selectedItems.push(item);
-        renderSelected();
+    div.onclick = function () {
+      selectedItems.push(item);
+      renderSelected();
+      searchInput.value = "";
+      suggestionBox.innerHTML = "";
+    };
 
-        searchInput.value = "";
-        suggestionBox.innerHTML = "";
-      };
-
-      suggestionBox.appendChild(div);
-    });
-});
+    suggestionBox.appendChild(div);
+  });
 
 // RENDER CHIP
 function renderSelected() {
