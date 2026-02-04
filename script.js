@@ -23,8 +23,13 @@ searchInput.addEventListener("input", function () {
   e.stopPropagation();
   selectedItems.push(item);
   renderSelected();
+
   searchInput.value = "";
   suggestionBox.innerHTML = "";
+
+  // 🔽 TAMBAHAN INI
+  searchInput.dispatchEvent(new Event("input"));
+};
 };
 
       suggestionBox.appendChild(div);
