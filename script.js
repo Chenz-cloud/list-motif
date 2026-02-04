@@ -45,9 +45,9 @@ function renderSelected() {
     const wrapper = document.createElement("div");
     wrapper.className = "selected-item";
 
-    const chip = document.createElement("span");
-    chip.className = "chip";
-    chip.textContent = item.nama;
+    const nama = document.createElement("span");
+nama.className = "chip";
+nama.textContent = item.nama;
 
     const btn = document.createElement("button");
     btn.textContent = "×";
