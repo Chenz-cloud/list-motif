@@ -30,22 +30,27 @@ searchInput.addEventListener("input", function () {
     });
 });
 
-function renderSelected()
-const previewList = document.getElementById("preview-list");
 
 function renderSelected() {
+  const previewList = document.getElementById("preview-list");
+
   selectedBox.innerHTML = "";
   selectedItems.forEach(item => {
     const tag = document.createElement("span");
     tag.textContent = item;
     selectedBox.appendChild(tag);
   });
+
   renderPreview();
-}{
-  selectedBox.innerHTML = "";
+}
+
+function renderPreview() {
+  const previewList = document.getElementById("preview-list");
+  previewList.innerHTML = "";
+
   selectedItems.forEach(item => {
-    const tag = document.createElement("span");
-    tag.textContent = item;
-    selectedBox.appendChild(tag);
+    const div = document.createElement("div");
+    div.textContent = item;
+    previewList.appendChild(div);
   });
 }
