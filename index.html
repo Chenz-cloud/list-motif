@@ -8,9 +8,9 @@
 </head>
 <body>
 
-  <h2>Pilih Motif</h2>
-  <div class="box">
+<h2>Pilih Motif</h2>
 
+<div class="box">
   <input
     type="text"
     id="search"
@@ -19,22 +19,22 @@
   >
 
   <div id="suggestions"></div>
-
   <div id="selected"></div>
 
-  <!-- TOMBOL DI LUAR PREVIEW -->
   <button id="btnPreview">Preview PDF</button>
-
 </div>
 
-<!-- PREVIEW PDF (OVERLAY, TERSEMBUNYI) -->
 <div id="pdfPreview" class="hidden">
   <div class="pdf-page">
-    <div
-
+    <div class="pdf-header">
+      <img src="logo.png">
+      <h3>Daftar Motif</h3>
+    </div>
+    <div id="pdf-list"></div>
   </div>
+</div>
 
-  <script src="data.js"></script>
-  <script src="script.js?v=2"></script>
+<script src="data.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
