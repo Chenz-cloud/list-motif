@@ -4,6 +4,7 @@ const selectedBox = document.getElementById("selected");
 
 let selectedItems = [];
 
+// AUTOCOMPLETE
 searchInput.addEventListener("input", function () {
   const keyword = this.value.toLowerCase();
   suggestionBox.innerHTML = "";
@@ -20,61 +21,53 @@ searchInput.addEventListener("input", function () {
       div.textContent = item;
 
       div.onclick = function (e) {
-  e.stopPropagation();
-  selectedItems.push(item);
-  renderSelected();
+        e.stopPropagation();
+        selectedItems.push(item);
+        renderSelected();
 
-  searchInput.value = "";
-  suggestionBox.innerHTML = "";
-
-  // 🔽 TAMBAHAN INI
-  searchInput.dispatchEvent(new Event("input"));
-};
-};
+        searchInput.value = "";
+        suggestionBox.innerHTML = "";
+      };
 
       suggestionBox.appendChild(div);
     });
 });
 
-
+// RENDER CHIP
 function renderSelected() {
-  const previewList = document.getElementById("preview-list");
+  selectedBox.innerHTML = "";
 
-  selectedBox.innerHTML = ""
   selectedItems.forEach((item, index) => {
-  const tag = document.createElement("span");
-  tag.className = "chip";
+    const tag = document.createElement("span");
+    tag.className = "chip";
 
-  const text = document.createElement("span");
-  text.textContent = item;
+    const text = document.createElement("span");
+    text.textContent = item;
 
-  const btn = document.createElement("button");
-  btn.textContent = "×";
+    const btn = document.createElement("button");
+    btn.textContent = "×";
 
-  btn.onclick = function () {
-    selectedItems.splice(index, 1);
-    renderSelected();
-  };
+    btn.onclick = function (e) {
+      e.stopPropagation();
+      selectedItems.splice(index, 1);
+      renderSelected();
+    };
 
-  tag.appendChild(text);
-  tag.appendChild(btn);
-  selectedBox.appendChild(tag);
-});
-  renderPreview();
-}
-
-
-  selectedItems.forEach(item => {
-    const div = document.createElement("div");
-    div.textContent = item;
-    previewList.appendChild(div);
+    tag.appendChild(text);
+    tag.appendChild(btn);
+    selectedBox.appendChild(tag);
   });
 }
-document.addEventListener("click", function (e) {
+
+// TUTUP AUTOCOMPLETE SAAT TAP LUAR
+function closeSuggestions(e) {
   if (
     !searchInput.contains(e.target) &&
     !suggestionBox.contains(e.target)
   ) {
     suggestionBox.innerHTML = "";
   }
-});
+}
+
+document.addEventListener("touchstart", closeSuggestions);
+document.addEventListener("click", closeSuggestions);
