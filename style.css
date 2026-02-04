@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 15px;
+}
+
+.box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-width: 400px;
+}
+
+#search {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ddd;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+#suggestions li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+#suggestions li:hover {
+  background: #f0f0f0;
+}
+
+.tag {
+  display: inline-block;
+  background: black;
+  color: white;
+  padding: 5px 8px;
+  margin: 3px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.tag span {
+  margin-left: 8px;
+  cursor: pointer;
+  color: #ffcccc;
+}
