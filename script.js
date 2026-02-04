@@ -35,13 +35,26 @@ searchInput.addEventListener("input", function () {
 function renderSelected() {
   const previewList = document.getElementById("preview-list");
 
-  selectedBox.innerHTML = "";
-  selectedItems.forEach(item => {
-    const tag = document.createElement("span");
-    tag.textContent = item;
-    selectedBox.appendChild(tag);
-  });
+  selectedBox.innerHTML = ""
+  selectedItems.forEach((item, index) => {
+  const tag = document.createElement("span");
+  tag.className = "chip";
 
+  const text = document.createElement("span");
+  text.textContent = item;
+
+  const btn = document.createElement("button");
+  btn.textContent = "×";
+
+  btn.onclick = function () {
+    selectedItems.splice(index, 1);
+    renderSelected();
+  };
+
+  tag.appendChild(text);
+  tag.appendChild(btn);
+  selectedBox.appendChild(tag);
+});
   renderPreview();
 }
 
