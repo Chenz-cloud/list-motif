@@ -38,52 +38,34 @@ function renderSelected() {
   selectedBox.innerHTML = "";
 
   selectedItems.forEach((item, index) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "selected-item";
+
     const tag = document.createElement("span");
     tag.className = "chip";
-
-    const text = document.createElement("span");
-    text.textContent = item;
+    tag.textContent = item;
 
     const btn = document.createElement("button");
     btn.textContent = "×";
-
-    btn.onclick = function (e) {
-      e.stopPropagation();
+    btn.onclick = function () {
       selectedItems.splice(index, 1);
       renderSelected();
     };
 
-    tag.appendChild(text);
-    tag.appendChild(btn);
-    selectedBox.appendChild(tag);
+    const img = document.createElement("img");
+    const fileName = motifToFileName(item);
+
+    img.src = `photos/${photoSize}/${fileName}.jpg`;
+    img.alt = item;
+    img.className = "preview-img";
+
+    wrapper.appendChild(tag);
+    wrapper.appendChild(btn);
+    wrapper.appendChild(img);
+
+    selectedBox.appendChild(wrapper);
   });
 }
-
-// TUTUP AUTOCOMPLETE SAAT TAP LUAR
-function closeSuggestions(e) {
-  if (
-    !searchInput.contains(e.target) &&
-    !suggestionBox.contains(e.target)
-  ) {
-    suggestionBox.innerHTML = "";
-  }
-}
-
-document.addEventListener("touchstart", closeSuggestions);
-document.addEventListener("click", closeSuggestions);
-const btnPreview = document.getElementById("btnPreview");
-const pdfPreview = document.getElementById("pdfPreview");
-const pdfList = document.getElementById("pdf-list");
-
-btnPreview.onclick = function () {
-  pdfList.innerHTML = "";
-
-  selectedItems.forEach((item, index) => {
-    const div = document.createElement("div");
-    div.textContent = (index + 1) + ". " + item;
-    div.style.marginBottom = "6px";
-    pdfList.appendChild(div);
-  });
 
   pdfPreview.classList.remove("hidden");
 };
