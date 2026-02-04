@@ -33,13 +33,14 @@ searchInput.addEventListener("input", function () {
 function renderSelected()
 const previewList = document.getElementById("preview-list");
 
-function renderPreview() {
-  previewList.innerHTML = "";
+function renderSelected() {
+  selectedBox.innerHTML = "";
   selectedItems.forEach(item => {
-    const box = document.createElement("div");
-    box.textContent = item;
-    previewList.appendChild(box);
+    const tag = document.createElement("span");
+    tag.textContent = item;
+    selectedBox.appendChild(tag);
   });
+  renderPreview();
 }{
   selectedBox.innerHTML = "";
   selectedItems.forEach(item => {
