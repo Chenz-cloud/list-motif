@@ -58,9 +58,6 @@ function renderSelected() {
   renderPreview();
 }
 
-function renderPreview() {
-  const previewList = document.getElementById("preview-list");
-  previewList.innerHTML = "";
 
   selectedItems.forEach(item => {
     const div = document.createElement("div");
