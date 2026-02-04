@@ -2,41 +2,60 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Pilih Motif</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <title>Daftar Motif</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #888;
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 420px;
+      margin: auto;
+    }
+    h2 {
+      margin-top: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .item {
+      text-align: center;
+    }
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+  </style>
 </head>
+
 <body>
 
-<h2>Pilih Motif</h2>
-
-<div class="box">
-  <input
-    type="text"
-    id="search"
-    placeholder="Ketik nama / kode motif..."
-    autocomplete="off"
-  >
-
-  <div id="suggestions"></div>
-  <div id="selected"></div>
-
-  <button id="btnPreview">Preview PDF</button>
+<div class="card" id="content">
+  <button id="btnDownload">Download PDF</button>
+  <h2>Daftar Motif</h2>
+  <hr>
+  <div class="grid" id="listMotif"></div>
 </div>
 
-<div id="pdfPreview" class="hidden">
-  <div class="pdf-page">
-    <button id="btnDownload">Download PDF</button>
-    <div class="pdf-header">
-      
-      <h3>Daftar Motif</h3>
-    </div>
-    <div id="pdf-list"></div>
-  </div>
-</div>
+<button id="btnPreview">Preview PDF</button>
 
-<script src="data.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="script-v3.js"></script>
+<script src="data.js?v=3"></script>
+<script src="script.js?v=3"></script>
+
 </body>
 </html>
