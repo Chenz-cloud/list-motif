@@ -19,12 +19,13 @@ searchInput.addEventListener("input", function () {
       const div = document.createElement("div");
       div.textContent = item;
 
-      div.onclick = function () {
-        selectedItems.push(item);
-        renderSelected();
-        searchInput.value = "";
-        suggestionBox.innerHTML = "";
-      };
+      div.onclick = function (e) {
+  e.stopPropagation();
+  selectedItems.push(item);
+  renderSelected();
+  searchInput.value = "";
+  suggestionBox.innerHTML = "";
+};
 
       suggestionBox.appendChild(div);
     });
