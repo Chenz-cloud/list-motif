@@ -81,3 +81,8 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
+#suggestions {
+  position: relative;
+  z-index: 999;
+  background: #fff;
+}
