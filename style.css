@@ -88,3 +88,11 @@ h2 {
   font-size: 16px;
   cursor: pointer;
 }
+#search {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+}
