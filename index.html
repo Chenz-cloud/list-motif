@@ -11,24 +11,25 @@
   <h2>Pilih Motif</h2>
 
   <div class="box">
-    <div id="selected"></div>
-    <div id="preview">
-  <div class="header">
-    <img src="logo.png" alt="Logo">
-    <h3>List Motif</h3>
-  </div>
+  <input
+    type="text"
+    id="search"
+    placeholder="Ketik nama / kode motif..."
+    autocomplete="off"
+  >
 
-  <div id="preview-list"></div>
+  <div id="suggestions"></div>
+
+  <div id="selected"></div>
+
+  <div id="preview">
+    <div class="header">
+      <img src="logo.png" alt="Logo">
+      <h3>List Motif</h3>
     </div>
 
-    <input
-      type="text"
-      id="search"
-      placeholder="Ketik nama / kode motif..."
-      autocomplete="off"
-    >
-
-   <div id="suggestions"></div>
+    <div id="preview-list"></div>
+  </div>
   </div>
 
   <script src="data.js"></script>
