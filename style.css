@@ -177,3 +177,25 @@ body {
 .pdf-header img {
   height: 40px;
 }
+.pdf-page {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 360px;
+  margin: auto;
+}
+
+.pdf-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pdf-header img {
+  width: 40px;
+  height: auto;
+}
+
+#btnDownload {
+  margin-bottom: 10px;
+}
