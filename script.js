@@ -54,3 +54,11 @@ function renderPreview() {
     previewList.appendChild(div);
   });
 }
+document.addEventListener("click", function (e) {
+  if (
+    !searchInput.contains(e.target) &&
+    !suggestionBox.contains(e.target)
+  ) {
+    suggestionBox.innerHTML = "";
+  }
+});
