@@ -201,3 +201,13 @@ body {
 #btnDownload {
   margin-bottom: 10px;
 }
+.selected-item {
+  margin-bottom: 12px;
+}
+
+.preview-img {
+  width: 120px;
+  margin-top: 6px;
+  border-radius: 6px;
+  display: block;
+}
