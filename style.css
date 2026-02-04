@@ -71,11 +71,11 @@ h2 {
 }
 #selected {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 8px;
   margin-top: 12px;
 
-  background: #f0f2f5;
+  background: #fff8e1;
   padding: 10px;
   border-radius: 12px;
 }
