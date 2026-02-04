@@ -82,9 +82,11 @@ body {
   gap: 15px;
 }
 #suggestions {
-  position: relative;
-  z-index: 999;
+  position: absolute;
+  width: 100%;
   background: #fff;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
 }
 .box {
   position: relative;
