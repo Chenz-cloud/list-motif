@@ -13,7 +13,7 @@ const motifList = [
   { nama: "Rhein bk", foto: "photos/25x50/rhein-bk.jpg" },
   { nama: "Seine wt", foto: "photos/25x50/seine-wt.jpg" },
   { nama: "Waikiki bg", foto: "photos/25x50/waikiki-bg.jpg" },
-  { nama: "Waikiki gy", foto: "photos/25x50/waikiki-gy.jpg" }, // <-- Pastikan ada koma di sini
+  { nama: "Waikiki gy", foto: "photos/25x50/waikiki-gy.jpg" },
   { nama: "Zenica bg", foto: "photos/25/40/zenica-bg.jpg" },
   { nama: "Capri gy", foto: "photos/25/40/capri-gy.jpg" },
   { nama: "Capri bg", foto: "photos/25/40/capri-bg.jpg" },
