@@ -14,9 +14,10 @@ const motifList = [
   { nama: "Seine wt", foto: "photos/25x50/seine-wt.jpg" },
   { nama: "Waikiki bg", foto: "photos/25x50/waikiki-bg.jpg" },
   { nama: "Waikiki gy", foto: "photos/25x50/waikiki-gy.jpg" },
-  { nama: "Zenica bg", foto: "photos/25/40/zenica-bg.jpg" },
-  { nama: "Capri gy", foto: "photos/25/40/capri-gy.jpg" },
-  { nama: "Capri bg", foto: "photos/25/40/capri-bg.jpg" },
-  { nama: "Marlin gy", foto: "photos/25/40/marlin-gy.jpg" },
-  { nama: "Sacramento bn", foto: "photos/25/40/sacramento-bn.jpg" }
+  // Perbaikan folder untuk ukuran 25x40:
+  { nama: "Zenica bg", foto: "photos/25x40/zenica-bg.jpg" },
+  { nama: "Capri gy", foto: "photos/25x40/capri-gy.jpg" },
+  { nama: "Capri bg", foto: "photos/25x40/capri-bg.jpg" },
+  { nama: "Marlin gy", foto: "photos/25x40/marlin-gy.jpg" },
+  { nama: "Sacramento bn", foto: "photos/25x40/sacramento-bn.jpg" }
 ];
